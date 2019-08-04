@@ -44,10 +44,10 @@ padding: 10px;
 					example2 = $('#example2').columns({
 						data:json,
 			schema: [
-				{"header":"کد", "key":"id", "template":"{{id}}"},
-				{"header":"مدل", "key":"name"},
-				{"header":"عکس", "key":"image", "template":'<a href="{{image}}" target="_blank"><img src="{{image}}" width="100" height="100"></img></a>'},
-				{"header":"لینک خرید", "key":"link", "template":'<a href="{{link}}" target="_blank">جهت خرید محصول کلیک کنید</a>'}
+				{"header":"کد", "key":"id", "template":'<center>{{id}}</center>'},
+				{"header":"مدل", "key":"name", "template":'<center>{{name}}</center>'},
+				{"header":"عکس", "key":"image", "template":'<center><a href="{{image}}?x-oss-process=image/resize,m_lfit,h_50,w_50/quality,q_80" target="_blank"><img src="{{image}}" width="100" height="100"></img></a></center>'},
+				{"header":"لینک خرید", "key":"link", "template":'<center><a href="{{link}}" target="_blank">جهت خرید محصول کلیک کنید</a></center>'}
 			]
 					}); 
 				}
