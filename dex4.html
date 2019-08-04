@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>فروشگاه دستبندانه</title>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<link id="style" href="css/classic.css" rel="stylesheet" media="screen">
+<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<style>
+body {
+font-family: helvetica, sans-serif;
+}
+.source {
+font-family: monospace;
+padding: 10px;
+}
+</style>
+</head>
+<body>
+
+<center><h1 style="margin-top:10px;">فروشگاه دستبندانه</h1></center>
+<center><h2>لطفا با استفاده از کادر جستجو محصول مورد نظرتان را بیابید</h2></center>
+<label>تغییر تم:</label>
+<select id="theme">
+<option value="classic.css">Classic</option>
+<option value="clean.css">Clean</option>
+</select>
+
+
+
+
+
+<div id="example2"></div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+<script src="js/jquery.columns-1.0.min.js"></script> 
+<script>
+
+			//example 2 
+			$.ajax({
+				url:'data.json',
+				dataType: 'json', 
+				success: function(json) { 
+					example2 = $('#example2').columns({
+						data:json,
+			schema: [
+				{"header":"کد", "key":"id", "template":"{{id}}"},
+				{"header":"مدل", "key":"name"},
+				{"header":"عکس", "key":"image", "template":'<a href="{{image}}" target="_blank"><img src="{{image}}" width="100" height="100"></img></a>'},
+				{"header":"لینک خرید", "key":"link", "template":'<a href="{{link}}" target="_blank">جهت خرید محصول کلیک کنید</a>'}
+			]
+					}); 
+				}
+			}); 
+
+
+			$('#theme').change(function() {
+				$('link').attr('href', 'css/'+$(this).val());
+			})
+		</script>
+
+</body>
+</html>
