@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>
+function myFunction() {
+  alert("Page is loaded");
+document.getElementById('loading_gif').style.visibility = 'hidden'; 
+}
+</script>
+
 <meta charset="utf-8">
 <title>فروشگاه دستبندانه</title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
@@ -16,7 +23,8 @@ padding: 10px;
 }
 </style>
 </head>
-<body>
+
+<body bgcolor="#dad5ff" onload="myFunction()"> 
 
 <center><h1 style="margin-top:10px;">فروشگاه دستبندانه</h1></center>
 <center><h2>لطفا با استفاده از کادر جستجو محصول مورد نظرتان را بیابید</h2></center>
@@ -26,9 +34,7 @@ padding: 10px;
 <option value="clean.css">Clean</option>
 </select>
 
-
-
-
+<center><div id="loading_gif"> لطفا تا لود شدن داده ها شکیبا باشید <br><img src="loading.gif"></div></center>
 
 <div id="example2"></div>
 
@@ -44,10 +50,10 @@ padding: 10px;
 					example2 = $('#example2').columns({
 						data:json,
 			schema: [
-				{"header":"کد", "key":"id", "template":'<center>{{id}}</center>'},
-				{"header":"مدل", "key":"name", "template":'<center>{{name}}</center>'},
-				{"header":"عکس", "key":"image", "template":'<center><a href="{{image}}" target="_blank"><img src="{{image}}?x-oss-process=image/resize,m_lfit,h_100,w_100/quality,q_80" width="100" height="100"></img></a></center>'},
-				{"header":"لینک خرید", "key":"link", "template":'<center><a href="{{link}}" target="_blank">جهت خرید محصول کلیک کنید</a></center>'}
+				{"header":"<center>کد</center>", "key":"id", "template":'<center>{{id}}</center>'},
+				{"header":"<center>مدل</center>", "key":"name", "template":'<center>{{name}}</center>'},
+				{"header":"<center>عکس<br><h5>جهت مشاهده عکس در اندازه واقعی بر روی آن کلیک کنید</h5></center>", "key":"image", "template":'<center><a href="{{image}}" target="_blank"><img src="{{image}}?x-oss-process=image/resize,m_lfit,h_100,w_100/quality,q_80" width="100" height="100"></img></a></center>'},
+				{"header":"<center>لینک خرید</center>", "key":"link", "template":'<center><a href="{{link}}" target="_blank">جهت خرید محصول کلیک کنید</a></center>'}
 			]
 					}); 
 				}
